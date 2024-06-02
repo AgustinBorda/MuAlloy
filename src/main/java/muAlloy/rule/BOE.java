@@ -57,9 +57,8 @@ public class BOE {
               .buildEquivModel(mu, mutatedFactOrAssertion, opt.getScope());
           break;
         default:
-          throw new UnsupportedOptionException(
-              BOE.class.getSimpleName() + " for formula is not supported in " + mi.getType());
-      }
+                return res;
+        }
       res = MutationData.of(mutatedNodePathAsString, mutant,
           MutantEquivalenceChecker.checkEquivalenceAndGenerateTest(equivModel, mi.getNode(), opt));
     }
@@ -107,9 +106,8 @@ public class BOE {
               .buildEquivModel(mu, mutatedFactOrAssertion, opt.getScope());
           break;
         default:
-          throw new UnsupportedOptionException(
-              BOE.class.getSimpleName() + " for formula is not supported in " + mi.getType());
-      }
+                return res;
+        }
       res = MutationData.of(mutatedNodePathAsString, mutant,
           MutantEquivalenceChecker.checkEquivalenceAndGenerateTest(equivModel, mi.getNode(), opt));
     }

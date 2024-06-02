@@ -34,7 +34,7 @@ public class UOI {
     if (exprOrFormula instanceof UnaryExpr
         && ((UnaryExpr) exprOrFormula).getOp() == UnaryExpr.UnaryOp.NOOP) {
       return res;
-    }
+    } 
     if (AlloyUtil.isHomogeneous(exprOrFormula.getType())) {
       UnaryExpr parent = (UnaryExpr) exprOrFormula.getParent();
       for (UnaryExpr.UnaryOp unaryOp : UnaryExpr.UnaryOp.values()) {
@@ -74,9 +74,7 @@ public class UOI {
                   .buildEquivModel(mu, mutatedFactOrAssertion, opt.getScope());
               break;
             default:
-              throw new UnsupportedOptionException(
-                  UOI.class.getSimpleName() + " for expression is not supported in " + mi
-                      .getType());
+                return res;
           }
           res.add(MutationData.of(mutatedNodePathAsString, mutant, MutantEquivalenceChecker
               .checkEquivalenceAndGenerateTest(equivModel, mi.getNode(), opt)));

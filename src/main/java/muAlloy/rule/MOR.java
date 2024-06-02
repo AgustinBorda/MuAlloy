@@ -42,8 +42,7 @@ public class MOR {
                 .buildEquivModel(mu, (SigDecl) mi.getNode(), original, mult, opt.getScope());
             break;
           default:
-            throw new UnsupportedOptionException(
-                MOR.class.getSimpleName() + " is not supported in " + mi.getType());
+                return res;
         }
         res.add(MutationData.of(mutatedNodePathAsString, mutant, MutantEquivalenceChecker
             .checkEquivalenceAndGenerateTest(equivModel, mi.getNode(), opt)));

@@ -64,8 +64,7 @@ public class UOD {
                 .buildEquivModel(mu, mutatedFactOrAssertion, opt.getScope());
             break;
           default:
-            throw new UnsupportedOptionException(
-                UOD.class.getSimpleName() + " for expression is not supported in " + mi.getType());
+                return res;
         }
         res = MutationData.of(mutatedNodePathAsString, mutant, MutantEquivalenceChecker
             .checkEquivalenceAndGenerateTest(equivModel, mi.getNode(), opt));

@@ -1,8 +1,5 @@
 package parser.ast.visitor;
 
-import static parser.etc.Names.COMMA;
-import static parser.etc.Names.NEW_LINE;
-
 import java.util.Arrays;
 import java.util.stream.Collectors;
 import parser.ast.nodes.Assertion;
@@ -37,6 +34,8 @@ import parser.ast.nodes.UnaryExpr;
 import parser.ast.nodes.UnaryFormula;
 import parser.ast.nodes.VarDecl;
 import parser.ast.nodes.VarExpr;
+
+import static parser.etc.Names.*;
 
 public class PrettyStringVisitor implements GenericVisitor<String, Object> {
 
@@ -167,7 +166,7 @@ public class PrettyStringVisitor implements GenericVisitor<String, Object> {
     if (sigName != null) {
       if (n.getLeft() instanceof SigExpr) {
         String leftName = ((SigExpr) n.getLeft()).getName();
-        if (leftName.equals(sigName)) {
+        if (leftName.equals(sigName) && n.getOp().equals(BinaryExpr.BinaryOp.JOIN)) {
           return n.getRight().accept(this, arg);
         }
       }

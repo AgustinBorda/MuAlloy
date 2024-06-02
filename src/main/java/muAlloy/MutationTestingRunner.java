@@ -96,6 +96,8 @@ public class MutationTestingRunner {
           isKilled = ans.satisfiable() != testResultForModel.get(i);
           if (isKilled) {
             killedMutantNum += 1;
+            logger.info(cmd.toString());
+            logger.info("Mutant Result: " + ans.satisfiable() + " Model Result: " + testResultForModel.get(i));
             break;
           }
         } catch (Err err) {

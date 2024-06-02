@@ -67,8 +67,7 @@ public class UOR {
                 .buildEquivModel(mu, mutatedFactOrAssertion, opt.getScope());
             break;
           default:
-            throw new UnsupportedOptionException(
-                UOR.class.getSimpleName() + " for expression is not supported in " + mi.getType());
+                return res;
         }
         res.add(MutationData.of(mutatedNodePathAsString, mutant, MutantEquivalenceChecker
             .checkEquivalenceAndGenerateTest(equivModel, mi.getNode(), opt)));
@@ -113,8 +112,7 @@ public class UOR {
                 .buildEquivModel(mu, mutatedFactOrAssertion, opt.getScope());
             break;
           default:
-            throw new UnsupportedOptionException(
-                UOR.class.getSimpleName() + " for formula is not supported in " + mi.getType());
+                return res;
         }
         res.add(MutationData.of(mutatedNodePathAsString, mutant, MutantEquivalenceChecker
             .checkEquivalenceAndGenerateTest(equivModel, mi.getNode(), opt)));

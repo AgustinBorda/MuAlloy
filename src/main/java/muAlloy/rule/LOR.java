@@ -70,8 +70,7 @@ public class LOR {
                 .buildEquivModel(mu, mutatedFactOrAssertion, opt.getScope());
             break;
           default:
-            throw new UnsupportedOptionException(
-                LOR.class.getSimpleName() + " for formula is not supported in " + mi.getType());
+                return res;
         }
         res.add(MutationData.of(mutatedNodePathAsString, mutant, MutantEquivalenceChecker
             .checkEquivalenceAndGenerateTest(equivModel, mi.getNode(), opt)));
