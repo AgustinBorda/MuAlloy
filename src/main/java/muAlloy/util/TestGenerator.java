@@ -58,9 +58,9 @@ public class TestGenerator {
           for (Sig.Field field : sig.getFields()) {
             A4TupleSet fieldTupleSet = sol.eval(field);
             if (fieldTupleSet.size() == 0) {
-              relAssignments.append("no ").append(field.sig.toString() + " :< " +field.label).append(Names.NEW_LINE);
+              relAssignments.append("no ").append(field.sig.toString() + " <: " +field.label).append(Names.NEW_LINE);
             } else {
-              relAssignments.append(field.sig.toString() + " :< " +field.label).append(" = ");
+              relAssignments.append(field.sig.toString() + " <: " +field.label).append(" = ");
               String assignPrefix = "";
               for (A4Tuple tuple : fieldTupleSet) {
                 String fieldValue = tuple.toString().replaceAll("\\$", "");
