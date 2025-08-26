@@ -14,6 +14,9 @@ public class FieldExpr extends ExprOrFormula {
   public FieldExpr(Node parent, Field field) {
     super(parent, field.type());
     this.name = StringUtil.afterSubstring(field.label, Names.SLASH, true);
+    // Workaround: added the signature to the field description to
+    // avoid ambiguities in the mutants.
+    this.name = "(" + field.sig.toString() + " <: " + this.name + ")";
   }
 
   public FieldExpr(Node parent, Type type, String name) {
